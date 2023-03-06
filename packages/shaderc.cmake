@@ -41,9 +41,10 @@ ExternalProject_Add_Step(shaderc symlink
 ExternalProject_Add_Step(shaderc manual-install
     DEPENDEES build
     COMMAND ${CMAKE_COMMAND} -E copy_directory <SOURCE_DIR>/libshaderc/include/shaderc ${MINGW_INSTALL_PREFIX}/include/shaderc
+    COMMAND ${CMAKE_COMMAND} -E copy_directory <SOURCE_DIR>/libshaderc_util/include/libshaderc_util ${MINGW_INSTALL_PREFIX}/include/libshaderc_util
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libshaderc/libshaderc.a ${MINGW_INSTALL_PREFIX}/lib/libshaderc.a
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libshaderc_util/libshaderc_util.a ${MINGW_INSTALL_PREFIX}/lib/libshaderc_util.a
-    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libshaderc_static.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/libshaderc.pc
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/shaderc_static.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/shaderc.pc
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libshaderc/libshaderc_combined.a ${MINGW_INSTALL_PREFIX}/lib/libshaderc_combined.a
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/shaderc_combined.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/shaderc_combined.pc
     COMMENT "Manually installing"
