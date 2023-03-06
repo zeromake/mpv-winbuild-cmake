@@ -22,7 +22,7 @@ ExternalProject_Add(mpv
         spirv-cross
         vapoursynth
         libsdl2
-    GIT_REPOSITORY https://github.com/mpv-player/mpv.git
+    GIT_REPOSITORY https://github.com/zeromake/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
     UPDATE_COMMAND ""
@@ -51,6 +51,8 @@ ExternalProject_Add(mpv
         -Dvulkan=enabled
         -Dvapoursynth=enabled
         -Degl-angle=enabled
+        -Dd3d11=enabled
+        -Duwp=enabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
