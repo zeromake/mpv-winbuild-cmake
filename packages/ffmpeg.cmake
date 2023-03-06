@@ -35,7 +35,7 @@ ExternalProject_Add(ffmpeg
         vapoursynth
         uavs3d
         davs2
-    GIT_REPOSITORY https://github.com/zeromake/FFmpeg.git
+    GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
     UPDATE_COMMAND ""
