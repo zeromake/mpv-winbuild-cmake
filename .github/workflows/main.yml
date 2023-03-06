@@ -5,12 +5,12 @@ defaults:
 
 on:
   workflow_dispatch:
-  inputs:
-    mpv_tarball:
-      description: 'Build latest mpv tarball'
-      required: false
-      default: true
-      type: boolean
+    inputs:
+      mpv_tarball:
+        description: 'Build latest mpv tarball'
+        required: false
+        default: true
+        type: boolean
 jobs:
   build_mpv:
     name: Building mpv
