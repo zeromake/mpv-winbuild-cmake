@@ -19,7 +19,7 @@ ExternalProject_Add(shaderc
         -DSHADERC_SKIP_EXAMPLES=ON
         -DMINGW_COMPILER_PREFIX=${TARGET_ARCH}
         -DCMAKE_CXX_FLAGS='${CMAKE_CXX_FLAGS} -std=c++11'
-        -DEXTRA_STATIC_PKGCONFIG_LIBS='-lglslc'
+        -DEXTRA_STATIC_PKGCONFIG_LIBS='-lglslang -lSPIRV-Tools -lSPIRV-Tools-opt'
     BUILD_COMMAND ${MAKE} -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
@@ -49,6 +49,21 @@ ExternalProject_Add_Step(shaderc manual-install
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libshaderc/libshaderc_combined.a ${MINGW_INSTALL_PREFIX}/lib/libshaderc_combined.a
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/shaderc_combined.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/shaderc_combined.pc
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/glslc/libglslc.a ${MINGW_INSTALL_PREFIX}/lib/libglslc.a
+
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/spirv-tools/source/libSPIRV-Tools.a ${MINGW_INSTALL_PREFIX}/lib/libSPIRV-Tools.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/spirv-tools/source/opt/libSPIRV-Tools-opt.a ${MINGW_INSTALL_PREFIX}/lib/libSPIRV-Tools-opt.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/spirv-tools/SPIRV-Tools.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/SPIRV-Tools.pc
+
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/glslang/libglslang.a ${MINGW_INSTALL_PREFIX}/lib/libglslang.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/glslang/libGenericCodeGen.a ${MINGW_INSTALL_PREFIX}/lib/libGenericCodeGen.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/glslang/libglslang-default-resource-limits.a ${MINGW_INSTALL_PREFIX}/lib/libglslang-default-resource-limits.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/hlsl/libHLSL.a ${MINGW_INSTALL_PREFIX}/lib/libHLSL.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/glslang/libMachineIndependent.a ${MINGW_INSTALL_PREFIX}/lib/libMachineIndependent.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/OGLCompilersDLL/libOGLCompiler.a ${MINGW_INSTALL_PREFIX}/lib/libOGLCompiler.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/glslang/OSDependent/Windows/libOSDependent.a ${MINGW_INSTALL_PREFIX}/lib/libOSDependent.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/SPIRV/libSPIRV.a ${MINGW_INSTALL_PREFIX}/lib/libSPIRV.a
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/third_party/glslang/SPIRV/libSPVRemapper.a ${MINGW_INSTALL_PREFIX}/lib/libSPVRemapper.a
+
     COMMENT "Manually installing"
 )
 
