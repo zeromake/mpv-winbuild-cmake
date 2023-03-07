@@ -19,6 +19,7 @@ ExternalProject_Add(shaderc
         -DSHADERC_SKIP_EXAMPLES=ON
         -DMINGW_COMPILER_PREFIX=${TARGET_ARCH}
         -DCMAKE_CXX_FLAGS='${CMAKE_CXX_FLAGS} -std=c++11'
+        -DEXTRA_STATIC_PKGCONFIG_LIBS='-lglslc'
     BUILD_COMMAND ${MAKE} -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
@@ -47,6 +48,7 @@ ExternalProject_Add_Step(shaderc manual-install
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/shaderc_static.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/shaderc.pc
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libshaderc/libshaderc_combined.a ${MINGW_INSTALL_PREFIX}/lib/libshaderc_combined.a
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/shaderc_combined.pc ${MINGW_INSTALL_PREFIX}/lib/pkgconfig/shaderc_combined.pc
+    COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/glslc/libglslc.a ${MINGW_INSTALL_PREFIX}/lib/libglslc.a
     COMMENT "Manually installing"
 )
 
