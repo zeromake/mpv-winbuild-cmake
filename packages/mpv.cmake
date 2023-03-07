@@ -54,7 +54,7 @@ ExternalProject_Add(mpv
         -Degl-angle=enabled
         -Dd3d11=enabled
         -Duwp=enabled
-        -Dshaderc=enabled
+        -Dshaderc=disabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
