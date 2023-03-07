@@ -52,7 +52,7 @@ ExternalProject_Add(mpv
         -Dvulkan=enabled
         -Dvapoursynth=enabled
         -Degl-angle=enabled
-        -Dd3d11=true
+        -Dd3d11=enabled
         -Duwp=enabled
         -Dshaderc=enabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
