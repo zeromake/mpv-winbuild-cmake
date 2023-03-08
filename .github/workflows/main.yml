@@ -17,6 +17,8 @@ on:
 jobs:
   build_mpv:
     name: Building mpv
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
