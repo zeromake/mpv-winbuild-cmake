@@ -11,6 +11,7 @@ ExternalProject_Add(mujs
     GIT_REPOSITORY https://github.com/ccxvii/mujs.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
+    GIT_TAG "f190f88ee21a2d216cd153ae75e1b1c5293648e5"
     PATCH_COMMAND ${EXEC} git am --3way ${CMAKE_CURRENT_SOURCE_DIR}/mujs-*.patch
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ""
